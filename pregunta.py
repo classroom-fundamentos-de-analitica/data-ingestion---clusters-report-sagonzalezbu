@@ -34,7 +34,7 @@ def ingest_data():
                     b = int(fila[1])
                     c = float(fila[2].replace(',','.'))
                     if d !='':
-                        registro[3].append(d[:-1])
+                        registro[3].append(d[:-1].replace('.',''))
                         d = ''
                         for i in range(4, len(fila)):
                             d += fila[i] + ' '
@@ -48,7 +48,7 @@ def ingest_data():
                     for i in range(len(fila)):
                         d += fila[i] + ' '
     
-    registro[3].append(d[:-1])
+    registro[3].append(d[:-1].replace('.',''))
     df = pd.DataFrame(
         {
             "cluster": registro[0],
